@@ -4,7 +4,7 @@ export type XIconProps = {
   className?: string
 }
 
-function XIcon(props: XIconProps) {
+export const XIcon: React.FunctionComponent<XIconProps> = (props) => {
   return (
     <svg
       width="21"
@@ -35,5 +35,3 @@ function XIcon(props: XIconProps) {
     </svg>
   )
 }
-
-export default XIcon

@@ -3,12 +3,15 @@ import { editableAttributes } from '@storyblok/preview-bridge'
 import NextImage from 'next/image'
 import type { TeamMemberContent } from '../content'
 import { backgroundColor } from './backgroundColorClass'
+import { FunctionComponent } from 'react'
 
 type TeamMemberViewProps = {
   content: TeamMemberContent
 }
 
-function TeamMemberView(props: TeamMemberViewProps) {
+export const TeamMemberView: FunctionComponent<TeamMemberViewProps> = (
+  props,
+) => {
   return (
     <div
       className="w-96 inline-flex flex-col justify-start items-start gap-6"
@@ -40,5 +43,3 @@ function TeamMemberView(props: TeamMemberViewProps) {
     </div>
   )
 }
-
-export default TeamMemberView

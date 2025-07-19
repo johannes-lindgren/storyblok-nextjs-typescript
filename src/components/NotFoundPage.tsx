@@ -1,21 +1,23 @@
 import * as React from 'react'
 import NextImage from 'next/image'
 import Link from 'next/link'
-import AppBarView from './AppBar'
-import FooterView from './Footer'
+import { AppBar } from './AppBar'
+import { Footer } from './Footer'
 
 export type NotFoundPageProps = {
   className?: string
 }
 
-function NotFoundPage(props: NotFoundPageProps) {
+export const NotFoundPage: React.FunctionComponent<NotFoundPageProps> = (
+  props,
+) => {
   return (
     <div
       className={`flex flex-col items-stretch min-h-screen ${
         props.className ?? ''
       }`}
     >
-      <AppBarView />
+      <AppBar />
       <div className="flex-1 self-stretch px-20 pt-24 flex flex-col justify-between items-center gap-12">
         <div className="flex flex-col justify-start items-center gap-6">
           <div className="flex flex-col justify-start items-center gap-2">
@@ -44,9 +46,7 @@ function NotFoundPage(props: NotFoundPageProps) {
           height={288}
         />
       </div>
-      <FooterView />
+      <Footer />
     </div>
   )
 }
-
-export default NotFoundPage

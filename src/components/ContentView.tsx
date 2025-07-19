@@ -1,20 +1,21 @@
 import * as React from 'react'
 import type { Content } from '../content'
-import TeamMembersView from './TeamMembers'
-import PageView from './PageView'
-import TestimonialsView from './TestimonialsView'
-import TestimonialView from './TestimonialView'
-import CardsView from './Cards'
-import HeroView from './Hero'
-import TabsView from './TabsView'
-import CardView from './Card'
-import ButtonView from './Button'
+import { TeamMembersView } from './TeamMembers'
+import { PageView } from './PageView'
+import { TestimonialsView } from './TestimonialsView'
+import { TestimonialView } from './TestimonialView'
+import { CardsView } from './Cards'
+import { HeroView } from './Hero'
+import { TabsView } from './TabsView'
+import { CardView } from './Card'
+import { ButtonView } from './Button'
+import { FunctionComponent } from 'react'
 
 export type ContentViewProps = {
   content: Content
 }
 
-function ContentView(props: ContentViewProps) {
+export const ContentView: FunctionComponent<ContentViewProps> = (props) => {
   switch (props.content.component) {
     case 'page':
       return <PageView content={props.content} />
@@ -36,5 +37,3 @@ function ContentView(props: ContentViewProps) {
       return <ButtonView content={props.content} />
   }
 }
-
-export default ContentView

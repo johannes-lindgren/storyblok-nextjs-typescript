@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import type { TeamMembersContent } from '../content'
-import TeamMemberView from './TeamMember'
-import RichTextView from './RichTextView'
+import { TeamMemberView } from './TeamMember'
+import { RichTextView } from './RichTextView'
+import { FunctionComponent } from 'react'
 
 export type TeamMembersViewProps = {
   content: TeamMembersContent
 }
-
-function TeamMembersView(props: TeamMembersViewProps) {
+export const TeamMembersView: FunctionComponent<TeamMembersViewProps> = (
+  props,
+) => {
   return (
     <div
       className="self-stretch px-5 py-10 md:px-20 md:py-24 items-center flex flex-col"
@@ -28,5 +30,3 @@ function TeamMembersView(props: TeamMembersViewProps) {
     </div>
   )
 }
-
-export default TeamMembersView

@@ -1,8 +1,8 @@
 'use client'
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FunctionComponent } from 'react'
 import Link from 'next/link'
-import { YoutubeIcon, XIcon, LinkedInIcon } from './icons'
+import { YouTubeIcon, XIcon, LinkedInIcon } from './icons'
 
 export type FooterViewProps = {
   className?: string
@@ -81,7 +81,7 @@ const footerMenu = [
   },
 ]
 
-function FooterView(props: FooterViewProps) {
+export const Footer: FunctionComponent<FooterViewProps> = (props) => {
   const [path, setPath] = useState<string | undefined>(() => undefined)
 
   useEffect(() => {
@@ -107,23 +107,14 @@ function FooterView(props: FooterViewProps) {
             mobile apps, AR/VR or voice content.
           </div>
           <div className="flex items-center gap-3">
-            <Link
-              href="https://www.linkedin.com/"
-              className="text-white"
-            >
+            <Link href="https://www.linkedin.com/" className="text-white">
               <LinkedInIcon />
             </Link>
-            <Link
-              href="https://x.com/"
-              className="text-white"
-            >
+            <Link href="https://x.com/" className="text-white">
               <XIcon />
             </Link>
-            <Link
-              href="https://youtube.com/"
-              className="text-white"
-            >
-              <YoutubeIcon />
+            <Link href="https://youtube.com/" className="text-white">
+              <YouTubeIcon />
             </Link>
           </div>
         </div>
@@ -154,5 +145,3 @@ function FooterView(props: FooterViewProps) {
     </div>
   )
 }
-
-export default FooterView

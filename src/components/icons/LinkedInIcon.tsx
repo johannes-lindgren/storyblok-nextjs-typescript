@@ -4,7 +4,9 @@ export type LinkedInIconProps = {
   className?: string
 }
 
-function LinkedInIcon(props: LinkedInIconProps) {
+export const LinkedInIcon: React.FunctionComponent<LinkedInIconProps> = (
+  props,
+) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,5 +37,3 @@ function LinkedInIcon(props: LinkedInIconProps) {
     </svg>
   )
 }
-
-export default LinkedInIcon

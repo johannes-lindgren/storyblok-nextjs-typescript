@@ -1,22 +1,19 @@
 import * as React from 'react'
 import type { RichTextContent } from '../../delivery-api'
-import RichTextView from './RichTextView'
+import { RichTextView } from './RichTextView'
 
 export type RichTextNodesProps = {
   nodes: RichTextContent[]
 }
 
-function RichTextNodes(props: RichTextNodesProps) {
+export const RichTextNodes: React.FunctionComponent<RichTextNodesProps> = (
+  props,
+) => {
   return (
     <>
       {props.nodes?.map((node, index) => (
-        <RichTextView
-          node={node}
-          key={index}
-        />
+        <RichTextView node={node} key={index} />
       ))}
     </>
   )
 }
-
-export default RichTextNodes

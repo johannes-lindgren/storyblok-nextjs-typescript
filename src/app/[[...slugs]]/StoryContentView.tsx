@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 import { parseContent, resolveStories } from '@/content'
 import { Story } from '@/delivery-api'
-import ContentView from '@/components/ContentView'
+import { ContentView } from '@/components/ContentView'
 import { formatResult } from 'pure-parse'
 
 /**
