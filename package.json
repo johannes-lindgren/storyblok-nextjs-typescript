@@ -15,7 +15,8 @@
     "next": "15.2.4",
     "pure-parse": "1.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "prettier": "^3.6.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

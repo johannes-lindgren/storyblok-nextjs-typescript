@@ -4,6 +4,8 @@ This is a template repository for building a Storyblok project with Next.js and 
 
 - 100% type safety with TypeScript and runtime validation with https://pureparse.dev/.
 - _Real_ Server Components (RSC) support.
+- Not dumbed-down
+- Opinionated—but flexible.
 
 ## Getting Started
 

@@ -2,9 +2,8 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import { StoryContentView } from './StoryContentView'
 import { parseStory, Story } from '@/delivery-api'
-import { loadUmdGlobal } from '@/bridge'
 import { formatResult } from 'pure-parse'
-import StorblokBridge from '@storyblok/preview-bridge'
+import StoryblokBridge from '@storyblok/preview-bridge'
 
 const usePreviewedStory = (enable: boolean) => {
   const [story, setStory] = useState<Story>()
@@ -14,11 +13,6 @@ const usePreviewedStory = (enable: boolean) => {
       return
     }
 
-    // Dynamically import the Storyblok Bridge, but use the types from the package.
-    loadUmdGlobal<typeof StorblokBridge>(
-      'https://app.storyblok.com/f/storyblok-v2-latest.js',
-      'StoryblokBridge',
-    ).then((StoryblokBridge) => {
       const bridge = new StoryblokBridge()
       bridge.on('input', (payload) => {
         const result = parseStory(payload.story)
@@ -31,7 +25,6 @@ const usePreviewedStory = (enable: boolean) => {
           setStory(result.value)
         }
       })
-    })
 
     return () => {
       // The bridge does not support cleanup of side effects.
