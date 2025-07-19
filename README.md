@@ -1,29 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Storyblok Next.js TypeScript Template
+
+This is a template repository for building a Storyblok project with Next.js and TypeScript. It features:
+
+- 100% type safety with TypeScript and runtime validation with https://pureparse.dev/.
+- _Real_ Server Components (RSC) support.
 
 ## Getting Started
 
 First, install dependencies:
 
 ```bash
-npm install
-# or
-yarn install
-# or
 pnpm install
-# or
-bun install
 ```
+
+Copy the `.env.example` file to `.env` and fill in the preview token.
+
 
 Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Run:
@@ -31,8 +27,6 @@ Run:
 ```bash
 npm run dev
 ```
-
-Then open [https://localhost:3000](https://localhost:3000) with your browser to see the result.
 
 ## About the codebase
 
