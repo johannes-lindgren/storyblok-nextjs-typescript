@@ -16,7 +16,8 @@
     "pure-parse": "1.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "@upstash/redis": "^1.35.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
