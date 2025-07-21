@@ -17,7 +17,6 @@ pnpm install
 
 Copy the `.env.example` file to `.env` and fill in the preview token.
 
-
 Run the development server:
 
 ```bash
@@ -47,18 +46,28 @@ To add a new component, you need to do three things:
 
 Storyblok's live preview works by sending the updated content through the iframe via `window.postMessage`. (The Storyblok preview bridge is a library that helps you manage this.) With client-side rendering, you can easily make the live preview work by:
 
+1. Declare a state
+   ```ts
+   const [story, setStory] = useState<Story | undefined>()
+   ```
+1. Render the application with the `story`.
+1. Fetch the story and initialize the state with it.
 1. Listen for changes to the content with the bridge.
-2. For each received event, store the content in a state.
-3. Render the application from the state.
+1. For each received change event, update the story.
+1. Result: the application re-renders whenever the story changes in the editor.
 
-However, in RSC, the content needs to be fetched from the server. (On the server, you cannot access client state.) But the bridge sends the updated content via the iframe to the client. Therefore, in this project, you need to choose between live preview and RSC. By default, client-side rendering is enabled. To toggle RSC on, see `src/app/[[...slugs]]/page.tsx`.
+However, in RSC, the content needs to be fetched from the server: when the client receives the story for the editor, it needs to _somehow_ be passed to the server.
 
-A possible workaround would be to:
+Storyblok provides a solution for this, which is to set a global variable with a server action, invalidate the path, and re-render based on the global variable.
 
+The solution in this codebase is to use an in-memory database (Redis) to store the content received from the visual editor:
+
+1. Fetch from in memrory database (Redis) if available, otherwise fetch from Storyblok.
+1. Renderthe content with RSCs.
 1. Listen for changes to the content with the bridge.
-2. On each event, store the content in an in-memory database, such as Redis.
-3. Revalidate the page.
-4. In the RSC, fetch the content from the in-memory database.
+1. On each event, call a server action that stores the content in an in-memory database (Redis).
+1. Revalidate the page.
+1. Result: you're back to the first step, now with the content in the in-memory database.
 
 ## General
 

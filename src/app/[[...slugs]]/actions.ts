@@ -4,6 +4,8 @@ import { Redis } from '@upstash/redis'
 import { Story } from '@/delivery-api'
 import { revalidatePath } from 'next/cache'
 
+// TODO authentication
+
 export async function updateStory(action: { story: Story; path: string }) {
   const { story, path } = action
 
