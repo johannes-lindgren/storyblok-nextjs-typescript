@@ -9,5 +9,3 @@ export * from './RichTextContent'
 export * from './TableContent'
 
 export * from './Story'
-
-export * from './fetchStory'

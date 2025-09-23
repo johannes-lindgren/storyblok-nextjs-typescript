@@ -1,9 +1,5 @@
-export { default as YoutubeIcon } from './YouTubeIcon'
-
-export { default as XIcon } from './XIcon'
-
-export { default as LinkedInIcon } from './LinkedInIcon'
-
-export { default as HamburgerIcon } from './HamburgerIcon'
-
-export { default as BrandIcon } from './BrandIcon'
+export * from './YouTubeIcon'
+export * from './XIcon'
+export * from './LinkedInIcon'
+export * from './HamburgerIcon'
+export * from './BrandIcon'

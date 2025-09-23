@@ -2,14 +2,14 @@ import * as React from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import NextImage from 'next/image'
 import type { CardContent } from '../content'
-import RichTextView from './RichTextView'
+import { RichTextView } from './RichTextView'
+import { FunctionComponent } from 'react'
 
 export type CardViewProps = {
   content: CardContent
   className?: string
 }
-
-function CardView(props: CardViewProps) {
+export const CardView: FunctionComponent<CardViewProps> = (props) => {
   return (
     <div
       {...editableAttributes(props.content)}
@@ -28,5 +28,3 @@ function CardView(props: CardViewProps) {
     </div>
   )
 }
-
-export default CardView

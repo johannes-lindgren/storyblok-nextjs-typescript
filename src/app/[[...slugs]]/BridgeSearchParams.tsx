@@ -1,5 +1,5 @@
 import { map, object, oneOf, parseString, withDefault } from 'pure-parse'
-import { type PreviewSearchParams } from '@storyblok/preview-bridge'
+import type { PreviewSearchParams } from '@storyblok/preview-bridge'
 
 /**
  * Description of the search params that Storyblok includes when

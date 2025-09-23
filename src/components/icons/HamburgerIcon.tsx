@@ -4,7 +4,9 @@ export type HamburgerIconProps = {
   className?: string
 }
 
-function HamburgerIcon(props: HamburgerIconProps) {
+export const HamburgerIcon: React.FunctionComponent<HamburgerIconProps> = (
+  props,
+) => {
   return (
     <svg
       width="24"
@@ -23,5 +25,3 @@ function HamburgerIcon(props: HamburgerIconProps) {
     </svg>
   )
 }
-
-export default HamburgerIcon

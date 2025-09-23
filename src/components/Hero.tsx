@@ -2,9 +2,10 @@ import * as React from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import NextImage from 'next/image'
 import type { HeroContent } from '../content'
-import RichTextView from './RichTextView'
+import { RichTextView } from './RichTextView'
 import { backgroundColor } from './backgroundColorClass'
-import ButtonView from './Button'
+import { ButtonView } from './Button'
+import { FunctionComponent } from 'react'
 
 export type HeroViewProps = {
   content: HeroContent
@@ -37,7 +38,7 @@ const textAlignment = (content: HeroContent): string => {
   }
 }
 
-function Hero(props: HeroViewProps) {
+export const HeroView: FunctionComponent<HeroViewProps> = (props) => {
   return (
     <div
       {...editableAttributes(props.content)}
@@ -59,10 +60,7 @@ function Hero(props: HeroViewProps) {
           <RichTextView node={props.content.description} />
           <div className="flex gap-2 md:gap-4 flex-wrap items-center">
             {props.content.buttons?.map((button) => (
-              <ButtonView
-                key={button._uid}
-                content={button}
-              />
+              <ButtonView key={button._uid} content={button} />
             ))}
           </div>
         </div>
@@ -87,5 +85,3 @@ function Hero(props: HeroViewProps) {
     </div>
   )
 }
-
-export default Hero

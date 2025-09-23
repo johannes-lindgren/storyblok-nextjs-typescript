@@ -3,12 +3,14 @@ import { editableAttributes } from '@storyblok/preview-bridge'
 import NextImage from 'next/image'
 import type { TestimonialContent } from '../content'
 import { backgroundColor } from './backgroundColorClass'
+import { FunctionComponent } from 'react'
 
 export type TestimonialViewProps = {
   content: TestimonialContent
 }
-
-function TestimonialView(props: TestimonialViewProps) {
+export const TestimonialView: FunctionComponent<TestimonialViewProps> = (
+  props,
+) => {
   return (
     <div
       className="flex flex-col items-start gap-6 p-12 flex-1 rounded-[12px] bg-white"
@@ -45,5 +47,3 @@ function TestimonialView(props: TestimonialViewProps) {
     </div>
   )
 }
-
-export default TestimonialView

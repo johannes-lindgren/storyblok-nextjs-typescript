@@ -1,6 +1,6 @@
 import { array, object, withDefault } from 'pure-parse'
-import { type BridgeSearchParams } from '../bridge'
-import { parseStory, type Story } from './Story'
+import { type BridgeSearchParams } from './BridgeSearchParams'
+import { parseStory, type Story } from '@/delivery-api/Story'
 
 export type StoryResponse = {
   story: Story
@@ -11,6 +11,7 @@ export const parseStoryResponse = object<StoryResponse>({
   story: parseStory,
   rels: withDefault(array(parseStory), []),
 })
+
 type FetchStoryParams = {
   baseUrl: string
   deliveryApiToken: string

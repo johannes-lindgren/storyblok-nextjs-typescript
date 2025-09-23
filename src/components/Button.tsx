@@ -8,6 +8,7 @@ import type {
   StoryLinkContent,
   UrlLinkContent,
 } from '../delivery-api'
+import { FunctionComponent } from 'react'
 
 export type ButtonViewProps = {
   content: ButtonContent
@@ -35,7 +36,7 @@ const colorStyles = (content: ButtonContent): string => {
 const hrefFromStoryLink = (slugs: string): string =>
   '/' + slugs.split('/').slice(1).join('/')
 
-function ButtonView(props: ButtonViewProps) {
+export const ButtonView: FunctionComponent<ButtonViewProps> = (props) => {
   return (
     <>
       {props.content.link?.linktype === 'url' ? (
@@ -84,5 +85,3 @@ function ButtonView(props: ButtonViewProps) {
     </>
   )
 }
-
-export default ButtonView

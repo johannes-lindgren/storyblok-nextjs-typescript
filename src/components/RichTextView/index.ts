@@ -1,1 +1,1 @@
-export { default } from './RichTextView'
+export * from './RichTextView'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import type { LinkMark, TextNode } from '../../delivery-api'
-import LinkTextNodeView from './LinkTextNodeView'
+import { LinkTextNodeView } from './LinkTextNodeView'
 import { classFromTextNode } from './classFromTextNode'
 
 export type TextNodeViewProps = {
@@ -10,7 +10,9 @@ export type TextNodeViewProps = {
 const getLinkMark = (node: TextNode): LinkMark | undefined =>
   node.marks.find((mark) => mark.type === 'link')
 
-function TextNodeView(props: TextNodeViewProps) {
+export const TextNodeView: React.FunctionComponent<TextNodeViewProps> = (
+  props,
+) => {
   return (
     <>
       {getLinkMark(props.node) ? (
@@ -25,5 +27,3 @@ function TextNodeView(props: TextNodeViewProps) {
     </>
   )
 }
-
-export default TextNodeView

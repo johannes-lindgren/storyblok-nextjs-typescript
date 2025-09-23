@@ -1,16 +1,15 @@
 'use client'
 import * as React from 'react'
-import { useState } from 'react'
+import { FunctionComponent, useState } from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import type { TabsContent } from '../content'
-import ContentView from './ContentView'
-import RichTextView from './RichTextView'
+import { ContentView } from './ContentView'
+import { RichTextView } from './RichTextView'
 
 export type TabsViewProps = {
   content: TabsContent
 }
-
-function TabsView(props: TabsViewProps) {
+export const TabsView: FunctionComponent<TabsViewProps> = (props) => {
   const [currentTabUid, setCurrentTabUid] = useState(
     () => props.content.tabs[0]?._uid,
   )
@@ -58,5 +57,3 @@ function TabsView(props: TabsViewProps) {
     </div>
   )
 }
-
-export default TabsView

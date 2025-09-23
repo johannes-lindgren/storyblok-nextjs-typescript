@@ -1,6 +1,6 @@
 'use client'
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FunctionComponent } from 'react'
 import Link from 'next/link'
 import { HamburgerIcon, BrandIcon } from './icons'
 
@@ -23,7 +23,7 @@ const tabs = [
   },
 ]
 
-function AppBarView(props: AppbarProps) {
+export const AppBar: FunctionComponent<AppbarProps> = (props) => {
   const [path, setPath] = useState<string | undefined>(() => undefined)
 
   const [menuOpen, setMenuOpen] = useState<boolean>(() => false)
@@ -100,5 +100,3 @@ function AppBarView(props: AppbarProps) {
     </div>
   )
 }
-
-export default AppBarView

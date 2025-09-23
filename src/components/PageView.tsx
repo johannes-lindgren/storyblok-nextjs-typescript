@@ -1,30 +1,26 @@
 import * as React from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import type { PageContent } from '../content'
-import AppBarView from './AppBar'
-import FooterView from './Footer'
-import ContentView from './ContentView'
+import { AppBar } from './AppBar'
+import { Footer } from './Footer'
+import { ContentView } from './ContentView'
+import { FunctionComponent } from 'react'
 
 export type PageViewProps = {
   content: PageContent
 }
 
-function PageView(props: PageViewProps) {
+export const PageView: FunctionComponent<PageViewProps> = (props) => {
   return (
     <div
       className="flex flex-col items-stretch"
       {...editableAttributes(props.content)}
     >
-      <AppBarView />
+      <AppBar />
       {props.content.body?.map((content, index) => (
-        <ContentView
-          content={content}
-          key={index}
-        />
+        <ContentView content={content} key={index} />
       ))}
-      <FooterView />
+      <Footer />
     </div>
   )
 }
-
-export default PageView

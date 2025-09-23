@@ -4,7 +4,7 @@ export type BrandIconProps = {
   className?: string
 }
 
-function BrandIcon(props: BrandIconProps) {
+export const BrandIcon: React.FunctionComponent<BrandIconProps> = (props) => {
   return (
     <svg
       width="28"
@@ -22,15 +22,9 @@ function BrandIcon(props: BrandIconProps) {
       </g>
       <defs>
         <clipPath id="clip0_14444_41205">
-          <rect
-            width="28"
-            height="28"
-            fill="white"
-          />
+          <rect width="28" height="28" fill="white" />
         </clipPath>
       </defs>
     </svg>
   )
 }
-
-export default BrandIcon

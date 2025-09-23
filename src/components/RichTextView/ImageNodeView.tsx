@@ -1,12 +1,13 @@
 import * as React from 'react'
 import NextImage from 'next/image'
 import type { ImageNode } from '../../delivery-api'
+import { FunctionComponent } from 'react'
 
 export type ImageNodeViewProps = {
   node: ImageNode
 }
 
-function ImageNodeView(props: ImageNodeViewProps) {
+export const ImageNodeView: FunctionComponent<ImageNodeViewProps> = (props) => {
   return (
     <NextImage
       className="overflow-hidden rounded-xl my-4"
@@ -18,5 +19,3 @@ function ImageNodeView(props: ImageNodeViewProps) {
     />
   )
 }
-
-export default ImageNodeView

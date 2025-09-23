@@ -19,7 +19,9 @@ const hrefFromStoryLink = (slugs: string): string =>
 const classFromLinkTextNode = (node: TextNode): string =>
   `text-blue-600 hover:text-blue-800 underline ${classFromTextNode(node)}`
 
-function TextNodeView(props: TextNodeViewProps) {
+export const LinkTextNodeView: React.FunctionComponent<TextNodeViewProps> = (
+  props,
+) => {
   return (
     <>
       {props.linkAttrs.linktype === 'url' ? (
@@ -63,5 +65,3 @@ function TextNodeView(props: TextNodeViewProps) {
     </>
   )
 }
-
-export default TextNodeView

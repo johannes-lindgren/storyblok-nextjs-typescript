@@ -4,7 +4,9 @@ export type YouTubeIconProps = {
   className?: string
 }
 
-function YouTubeIcon(props: YouTubeIconProps) {
+export const YouTubeIcon: React.FunctionComponent<YouTubeIconProps> = (
+  props,
+) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,5 +35,3 @@ function YouTubeIcon(props: YouTubeIconProps) {
     </svg>
   )
 }
-
-export default YouTubeIcon

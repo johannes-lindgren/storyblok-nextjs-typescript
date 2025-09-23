@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import type { CardsContent } from '../content'
-import CardView from './Card'
-import RichTextView from './RichTextView'
+import { CardView } from './Card'
+import { RichTextView } from './RichTextView'
+import { FunctionComponent } from 'react'
 
 export type CardsViewProps = {
   content: CardsContent
 }
-
-function CardsView(props: CardsViewProps) {
+export const CardsView: FunctionComponent<CardsViewProps> = (props) => {
   return (
     <div
       className="self-stretch px-5 py-10 md:px-20 md:py-24 bg-neutral-100 items-center flex flex-col"
@@ -31,5 +31,3 @@ function CardsView(props: CardsViewProps) {
     </div>
   )
 }
-
-export default CardsView

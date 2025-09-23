@@ -1,13 +1,15 @@
 import * as React from 'react'
 import { editableAttributes } from '@storyblok/preview-bridge'
 import type { TestimonialsContent } from '../content'
-import ContentView from './ContentView'
+import { ContentView } from './ContentView'
+import { FunctionComponent } from 'react'
 
 export type TestimonialsViewProps = {
   content: TestimonialsContent
 }
-
-function TestimonialsView(props: TestimonialsViewProps) {
+export const TestimonialsView: FunctionComponent<TestimonialsViewProps> = (
+  props,
+) => {
   return (
     <div
       className="flex flex-col items-center self-stretch gap-[60px] px-5 pt-[60px] pb-[100px] bg-neutral-100 sm:gap-[60px] sm:px-20 sm:pt-[60px] sm:pb-[100px]"
@@ -23,14 +25,9 @@ function TestimonialsView(props: TestimonialsViewProps) {
       </div>
       <div className="self-stretch flex justify-start items-stretch gap-4 md:gap-6 flex-col md:flex-row">
         {props.content.testimonials?.map((testimonial, index) => (
-          <ContentView
-            content={testimonial}
-            key={index}
-          />
+          <ContentView content={testimonial} key={index} />
         ))}
       </div>
     </div>
   )
 }
-
-export default TestimonialsView
